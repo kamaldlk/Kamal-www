@@ -1,0 +1,116 @@
+<div class="pageheight">
+    <md-toolbar layout="row" class="pos md-whiteframe-z2">
+        <div class="md-toolbar-tools">
+            <md-button ng-click="toggleSidenav('left')" hide-gt-md class="md-icon-button">
+                <md-icon class="_textcolor">menu</md-icon>
+            </md-button>
+            <h2><span class="_textcolor">ORP</span></h2>
+            <span flex></span>
+
+            <md-menu md-position-mode="target-right target">
+                <md-button ng-click="$mdOpenMenu($event)" class="md-icon-button _mdmenu" aria-label="More">
+                    <md-icon class="_textcolor">more_vert</md-icon>
+                </md-button>
+                <md-menu-content width="3">
+                    <item name="spinBars"></item>
+                    <md-menu-item>
+                        <md-button ng-click="transitTo('signin')">
+                            <div layout="row">
+                                <p flex="">Sign In</p>
+                            </div>
+                        </md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                        <md-button ng-click="transitTo('signup')">
+                            <div layout="row">
+                                <p flex="">Sign Up</p>
+                            </div>
+                        </md-button>
+                    </md-menu-item>
+
+                </md-menu-content>
+            </md-menu>
+        </div>
+    </md-toolbar>
+    <div layout="row" flex class="pageh">
+        <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2 " md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+            <md-toolbar class="md-tall md-hue-2" layout-align="end end">
+                <div class="md-toolbar-tools posprofile" layout layout-padding>
+                    <md-icon class="font60">account_circle</md-icon>
+                    <div layout="column" layout-padding class="profileinfo">
+                        <span class="md-body-2 font18">User Name</span>
+                        <span class="md-caption">username.ft@example.com</span>
+                    </div>
+                    <span flex></span>
+
+                </div>
+            </md-toolbar>
+            <md-content role="navigation">
+                <md-list>
+                    <md-list-item ng-click="home();">
+                        <md-icon>home</md-icon>
+                        <p class="md-subheader sectioncolor">Home</p>
+                        <span flex></span>
+
+                    </md-list-item>
+
+                    <md-list-item ng-click="contact();">
+                        <md-icon>contacts</md-icon>
+                        <p class="md-subheader sectioncolor">Contact</p>
+                        <span flex></span>
+
+                    </md-list-item>
+        </md-sidenav>
+
+        <div layout="column" flex id="content">
+            <md-content layout="column" flex class="md-padding md-whiteframe-z2" ui-view>
+                <md-tabs md-dynamic-height md-border-bottom md-stretch-tabs="always">
+                    <md-tab label="Property Details">
+                        <div>
+                            <div class="card card-1" ng-repeat="appartment in appartments | filter:search">
+                                <div class="cardtop">
+                                    <p class="cardhead">Rent {{appartment.rentalFee}} per month</p>
+                                </div>
+                                <div>
+                                    <img ng-src="data:{{apartment.photos[0].contentType}};base64,{{apartment.photos[0].content}}" class="md-card-image cardimg" alt="">
+                                </div>
+                                <div class="cardbottom">
+                                    <i class="icon ion-android-home white"></i><span class="cardspan">{{appartment.roomsize}} M x M</span>
+                                    <i class="icon ion-ios-filing white"></i><span class="cardspan">{{appartment.numberOfBedroom}} Bed</span>
+                                    <i class="icon ion-man white"></i><span class="cardspan">{{appartment.numberOfMonthForprepaid}} Month Prepaid</span>
+                                </div>
+                                <div class="resname">
+                                    <span class="md-headline font14">{{appartment.apartmentName}}</span>
+                                    <p class="ptag">{{[appartment.addressNo,appartment.street,appartment.city,appartment.district].join(' ')}}</p>
+                                </div>
+                                <div class="resname2">
+                                    <md-button class="md-icon-button favbtn" ng-click="favorite();">
+                                        <div layout="row">
+                                            <md-icon class="fav">favorite</md-icon>
+                                        </div>
+                                    </md-button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </md-tab>
+                    <md-tab label="Property Location">
+                        <div style="width:100%;height:100%">
+                            <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options" bounds="map.bounds">
+                                <ui-gmap-markers models="randomMarkers" coords="'self'" icon="'icon'" click="onMarkerClicked">
+                                    <ui-gmap-windows show="show">
+                                        <div ng-non-bindable>{{title}}</div>
+                                    </ui-gmap-windows>
+                                </ui-gmap-markers>
+                            </ui-gmap-google-map>
+                        </div>
+                    </md-tab>
+                </md-tabs>
+                <!-- <md-button ng-click="search();" class="md-fab md-primary md-fab-bottom-right mdfabpos" aria-label="Profile">
+            <md-icon >search</md-icon>
+        </md-button>-->
+            </md-content>
+        </div>
+    </div>
+</div>

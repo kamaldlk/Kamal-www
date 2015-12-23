@@ -1,0 +1,25 @@
+<div layout-align="start center" class="animate backgroundimg pageheight">
+    <div layout="row" layout-align="center" class="md-padding logo"> <img src="img/logo.png" alt=""> </div>
+    <div class="md-padding">
+        <form name="signInForm">
+            <md-input-container class="_md-input-container" flex md-no-float>
+                <input type="text" name="userName" ng-model="user.username" placeholder="User Name" class="userName">
+            </md-input-container>
+            <md-input-container class="_md-input-container" flex md-no-float>
+                <input type="password" name="password" ng-model="user.password" placeholder="Password" class="passWord">
+            </md-input-container>
+
+            <md-input-container flex>
+                <md-button class="_md-button" ng-disabled="signInForm.$error.$invalid" ng-click="signIn(user)">Sign In</md-button>
+            </md-input-container>
+        </form>
+    </div>
+    <md-input-container class="_md-input-container" flex layout="row" layout-align="center">
+        <a ui-sref="signup">
+            <md-button>Sign Up</md-button>
+        </a>
+        <a ui-sref="forgetpwd">
+            <md-button>Forgot Password</md-button>
+        </a>
+    </md-input-container>
+</div>

@@ -1,0 +1,45 @@
+<div layout-align="start center" class="animate backgroundimg pageheight">
+    <div layout="row" layout-align="center" class="md-padding logo"> <img src="img/logo.png" alt=""> </div>
+    <div class="md-padding">
+        <form name="signupForm">
+            <md-input-container class="_md-input-container" flex md-no-float>
+                <input type="text" ng-model="user.name" name="name" placeholder="Name" class="userName" required>
+                <span ng-init="triggerAlert('NAME_REQ')" ng-show="signupForm.name.$error.required"></span>
+            </md-input-container>
+            <md-input-container class="_md-input-container" flex md-no-float>
+                <input type="text" ng-model="user.username" name="userName" placeholder="User Name" class="userName" required>
+                <span ng-init="triggerAlert('USER_NAME_REQ')" ng-show="signupForm.username.$error.required"></span>
+            </md-input-container>
+            <md-input-container flex md-no-float>
+                <input type="email" name="email" ng-model="user.email" placeholder="Email Address" class="email" required>
+                <span ng-init="triggerAlert('EMAIL_REQ')" ng-show="signupForm.email.$error.required"></span>
+                <span ng-init="triggerAlert('EMAIL_INVALID')" ng-show="signupForm.email.$invalid"></span>
+            </md-input-container>
+            <md-input-container class="_md-input-container" flex md-no-float>
+                <input type="password" name="password" ng-model="user.password" placeholder="Password" class="passWord" required>
+                <span ng-init="triggerAlert('PASSWORD_REQ')" ng-show="signupForm.password.$error.required"></span>
+            </md-input-container>
+            <md-input-container class="_md-input-container" flex md-no-float>
+                <input type="password" name="confirmPassword" ng-model="user.repassword" placeholder="Confirm Password" class="passWord" required>
+                <span ng-init="triggerAlert('CONF_PASSWORD_REQ')" ng-show="signupForm.confirmPassword.$error.required"></span>
+            </md-input-container>
+
+            <md-radio-group ng-model="user.role.roleName" style="color:#FFF;">
+                <md-radio-button value="admin" class="md-primary radiocolors">Apartment Owner</md-radio-button>
+                <md-radio-button value="user" class="md-primary radiocolors">Apartment Seeker </md-radio-button>
+            </md-radio-group>
+
+            <md-input-container flex>
+                <md-button class="_md-button" ng-click="signUp(user)">Sign Up</md-button>
+            </md-input-container>
+        </form>
+    </div>
+    <md-input-container class="_md-input-container" flex layout="row" layout-align="center">
+        <a ui-sref="signin">
+            <md-button>Sign In</md-button>
+        </a>
+        <a ui-sref="forgetpwd">
+            <md-button>Forgot Password</md-button>
+        </a>
+    </md-input-container>
+</div>

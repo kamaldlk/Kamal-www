@@ -1,0 +1,119 @@
+<div flex="100" flex-md="100" layout-padding>
+    <p>Apartment information</p>
+</div>
+<div layout-sm="column" layout-gt-sm="row" layout-wrap class="orp-form-container">
+    <div flex="40" flex-md="50" layout-padding>
+        <input type="text" ng-model="newApartment.apartmentName" placeholder="Name" />
+    </div>
+    <div flex="40" flex-md="50" layout-padding>
+        <input type="text" ng-model="newApartment.contractPerson" placeholder="Contract Person" />
+    </div>
+    <div flex="40" flex-md="50" layout-padding>
+        <input type="text" ng-model="newApartment.telephoneNumber" placeholder="Telephone Number" />
+    </div>
+    <div flex="40" flex-md="50" layout-padding>
+        <input type="email" ng-model="newApartment.email" placeholder="Email" />
+    </div>
+    <div flex="100" flex-md="100" layout-padding>
+        <p>Address</p>
+    </div>
+
+    <div flex="30" flex-md="50" layout-padding>
+        <input type="text" ng-model="newApartment.addressNo" placeholder="addressNo" />
+    </div>
+    <div flex="30" flex-md="50" layout-padding>
+        <input type="text" ng-model="newApartment.street" placeholder="street" />
+    </div>
+    <div flex="30" flex-md="50" layout-padding>
+        <input type="text" ng-model="newApartment.city" placeholder="city" />
+    </div>
+    <div flex="30" flex-md="50" layout-padding>
+        <input type="text" ng-model="newApartment.district" placeholder="District" />
+    </div>
+    <div flex="30" flex-md="50" layout-padding>
+        <input type="text" ng-model="newApartment.subDistrict" placeholder="subDistrict" />
+    </div>
+    <div flex="30" flex-md="50" layout-padding>
+        <input type="text" ng-model="newApartment.zipCode" placeholder="zipCode" />
+    </div>
+    <div flex="100" flex-md="100" layout-padding>
+        <p> Note Serviced Apartment is an apartment which provides service same as hotel service.</p>
+    </div>
+
+    <div flex="100" flex-md="100" layout-padding>
+        <md-checkbox ng-model="newApartment.type" aria-label="Checkbox 1">
+            Service apartment
+        </md-checkbox>
+    </div>
+    <div flex="100" flex-md="100" layout-padding>
+        <p>Facilities</p>
+    </div>
+
+    <div flex="40" flex-md="50" layout-padding ng-repeat="aptFacility in aptFeclities">
+        <md-checkbox ng-model="aptFacility.isPresent" aria-label="Checkbox 1">
+            {{aptFacility.type}}
+        </md-checkbox>
+    </div>
+
+    <div flex="100" flex-md="100" layout-padding>
+        <p>Type of room</p>
+    </div>
+
+
+    <div flex="40" flex-md="50" layout-padding>
+        <input type="text" ng-model="newApartment.typeOfRoom" placeholder="Type of room" />
+    </div>
+    <div flex="40" flex-md="50" layout-padding>
+        <input type="text" ng-model="newApartment.numberOfBedroom" placeholder="Number of Bedroom" />
+    </div>
+    <div flex="40" flex-md="50" layout-padding>
+        <input type="text" ng-model="newApartment.roomsize" placeholder="Roomsize" />
+    </div>
+
+    <div flex="100" flex-md="100" layout-padding>
+        <p>Cost</p>
+    </div>
+
+
+    <div flex="40" flex-md="50" layout-padding>
+        <input type="text" ng-model="newApartment.rentalFee" placeholder="rental Fee" />
+    </div>
+    <div flex="40" flex-md="50" layout-padding>
+        <input type="text" ng-model="newApartment.deposit" placeholder="deposit" />
+    </div>
+    <div flex="40" flex-md="50" layout-padding>
+        <input type="text" ng-model="newApartment.numberOfMonthForprepaid" placeholder="Number of month prepaid" />
+    </div>
+    <div flex="40" flex-md="50" layout-padding>
+        <input type="text" ng-model="newApartment.electricFee" placeholder="electric Fee" />
+    </div>
+    <div flex="40" flex-md="50" layout-padding>
+        <input type="text" ng-model="newApartment.waterFee" placeholder="water Fee" />
+    </div>
+    <div flex="40" flex-md="50" layout-padding>
+        <input type="text" ng-model="newApartment.telephoneFee" placeholder="Telephone Fee" />
+    </div>
+    <div flex="40" flex-md="50" layout-padding>
+        <input type="text" ng-model="newApartment.intenetFee" placeholder="Internet Fee" />
+    </div>
+    <div flex="40" flex-md="50" layout-padding>
+        <input type="text" ng-model="newApartment.typeOfInternet" placeholder="Type of Internet" />
+    </div>
+    <div flex="100" flex-md="100" layout-padding>
+        <p>More detail</p>
+    </div>
+
+    <div flex="40" flex-md="50" layout-padding>
+        <input type="text" ng-model="newApartment.detail" placeholder="Notes about apartment" />
+    </div>
+    <div flex="40" flex-md="50" layout-padding ng-hide="updateMode">
+        <md-button class="md-raised search-btn" ng-click="addNewApartment(newApartment)">
+            Submit
+        </md-button>
+    </div>
+    <div flex="40" flex-md="50" layout-padding ng-show="updateMode">
+        <md-button class="md-raised search-btn" ng-click="updateApartment(newApartment)">
+            Update
+        </md-button>
+    </div>
+</div>

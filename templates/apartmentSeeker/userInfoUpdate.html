@@ -1,0 +1,35 @@
+<!--<md-button ng-click="update();" class="md-fab md-primary md-fab-bottom-right mdfabpos" aria-label="Profile">
+    <md-icon>mode_edit</md-icon>
+</md-button>-->
+<div layout-sm="column" layout-gt-sm="row" layout-wrap class="orp-form-container">
+    <div flex="80" flex-md="100" layout-padding>
+        <input type="text" ng-model="user.name" placeholder="Name" />
+    </div>
+
+    <div flex="40" flex-md="50" layout-padding>
+        <input type="text" ng-model="user.username" placeholder="Username" />
+    </div>
+
+    <div flex="40" flex-md="50" layout-padding>
+        <input type="text" ng-model="user.email" placeholder="Email" />
+    </div>
+
+    <div flex="40" flex-md="50" layout-padding>
+        <input type="password" ng-model="user.password" placeholder="Password " />
+    </div>
+
+    <div flex="40" flex-md="50" layout-padding>
+        <input type="password" ng-model="user.repassword" placeholder="Re-Password " />
+    </div>
+
+    <div flex="40" flex-md="50" layout-padding>
+        <md-button flex="40" flex-md="50" class="md-raised search-btn" ng-click="updateUser()">
+            update
+        </md-button>
+    </div>
+    <div flex="40" flex-md="50" layout-padding>
+        <md-button flex="40" flex-md="50" class="md-raised search-btn" ng-click="deleteUser">
+            Delete
+        </md-button>
+    </div>
+</div>
